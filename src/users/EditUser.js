@@ -1,6 +1,7 @@
 import API from '../API';
 import UserForm from './UserForm';
 import React from 'react';
+import {withTranslation} from 'react-i18next';
 
 class EditUser extends UserForm {
 
@@ -38,13 +39,16 @@ class EditUser extends UserForm {
                 this.props.history.push('/users');
             });
     }
+
     render() {
+        const {t} = this.props;
         return (
-            <div><h4>Edycja użytkownika</h4>
-                { super.render('Zapisz')}
+            <div><h4>{t('EditUser')}</h4>
+                {super.render('Zapisz')}
             </div>
         );
     }
 }
 
-export default EditUser;
+export default withTranslation()(EditUser);
+//export default EditUser;
