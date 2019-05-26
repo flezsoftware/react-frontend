@@ -6,11 +6,13 @@ class Users extends React.Component {
 
     constructor(props) {
         super(props);
+        this.setState({users: []});
         this.getUsers();
     }
 
     async getUsers() {
         const {data: users} = await API.get("/user");
+        if(users!=null)
         this.setState({users: users});
     };
 

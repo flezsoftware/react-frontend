@@ -12,6 +12,7 @@ function App() {
                 <h2>{t('AppName')}</h2>
                 <nav>
                     <div><Link to="/home">Home</Link></div>
+                    <div><Link to="/login">Login</Link></div>
                     <div><Link to="/users">Users</Link></div>
                     <div><Link to="/users/add">Add User</Link></div>
                 </nav>

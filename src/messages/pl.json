@@ -1,5 +1,15 @@
 {
   "AppName": "Nazwa Aplikacji",
   "AddUser": "Dodaj Użytkownika",
-  "EditUser": "Edytuj Użytkownika"
+  "EditUser": "Edytuj Użytkownika",
+  "Size" : {
+    "user" : {
+      "password" : "Nie dluzszy niz {{arg1}} Nie kotszy niz {{arg2}}"
+    }
+  },
+  "NotBlank" : {
+    "user" : {
+      "username" : "Nie pusty"
+    }
+  }
 }
