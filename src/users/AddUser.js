@@ -1,8 +1,23 @@
 import React from 'react';
+import {withStyles} from '@material-ui/styles';
+import UserForm from "./UserFormMaterial";
 import {withTranslation} from "react-i18next";
-import UserForm from "./UserForm";
+
+const styles =  {
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      //  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+    },
+    textField: {
+        marginLeft: 5,
+        marginRight: 5,
+        width: 200,
+    },
+};
 
 class AddUser extends  UserForm {
+
     render() {
         const {t} = this.props;
         return (
@@ -13,4 +28,4 @@ class AddUser extends  UserForm {
     }
 }
 
-export default withTranslation()(AddUser);
+export default withStyles(styles)(withTranslation()(AddUser));

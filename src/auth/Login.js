@@ -2,7 +2,7 @@ import React from 'react';
 import qs from 'qs';
 import API from '../API';
 import StaticLogout from './StaticLogout';
-
+import  OauthGoogleLogin from  './OauthGoogleLogin';
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -38,6 +38,15 @@ class Login extends React.Component {
         const headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
+
+        API.get(
+            'login',
+            data,
+            headers
+        ).then((response) => {
+            console.log(response);
+        });
+
         API.post(
             'login',
             data,
@@ -73,11 +82,13 @@ class Login extends React.Component {
                         Password: <input type="password" name="password" value={this.state.loginForm.password}
                                          onChange={this.handleChange}/>
                         <button className="btn btn-success" onClick={this.login}>Login</button>
+                        <a href="http://localhost:8080/google?redirect_uri=http://localhost:3000/panel">Google Login</a>
                     </div>
                     <div>
                         <pre>{JSON.stringify(this.state.user, null, 2)}</pre>
                     </div>
                 </div>
+                <OauthGoogleLogin/>
                 <StaticLogout/>
             </div>
         )

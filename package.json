@@ -12,7 +12,8 @@
     "react-i18next": "^10.10.0",
     "axios": "^0.18.0",
     "proxy": "^0.2.4",
-    "qs": "^6.7.0"
+    "qs": "^6.7.0",
+    "@material-ui/core": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

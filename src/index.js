@@ -7,20 +7,24 @@ import Home from './Home';
 import AddUser from './users/AddUser';
 import EditUser from './users/EditUser';
 import Login from './auth/Login';
+import EditUserHoc from './hoc/EditUserHoc.js';
 import {BrowserRouter, Route} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import i18n from './i18n';
 
 import {I18nextProvider} from 'react-i18next';
+import PanelUser from "./users/PanelUser";
+
 
 ReactDOM.render(<BrowserRouter>
     <I18nextProvider i18n={i18n}>
     <App/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/home" component={Home}/>
+    <Route exact path="/panel" component={PanelUser}/>
     <Route exact path="/users" component={Users}/>
     <Route exact path="/users/add" component={AddUser}/>
-    <Route exact path="/users/edit/:id" component={EditUser}/>
+    <Route exact path="/users/edit/:id" component={EditUserHoc}/>
     </I18nextProvider>
 </BrowserRouter>, document.getElementById('root'));
 

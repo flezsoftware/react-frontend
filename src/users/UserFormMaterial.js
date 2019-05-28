@@ -1,8 +1,10 @@
 import React from 'react';
 import FormValidator from "../validation/FormValidator";
 import API from "../API";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-class UserForm extends FormValidator {
+class UserFormMaterial extends FormValidator {
 
     constructor(props){
         super(props);
@@ -23,6 +25,9 @@ class UserForm extends FormValidator {
     }
 
     validateErrors(error) {
+        this.setState(prevState => ({
+            errors: { username: '', password: '', email: '' }
+        }));
         return super.validateErrors(error, this.props.t)
     }
 
@@ -40,42 +45,48 @@ class UserForm extends FormValidator {
     }
 
     render(buttonName) {
+        console.log(this.props.classes.container);
         return (
-            <form onSubmit={this.onSubmit}>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
+            <div  className={this.props.classes.container}>
+                <form onSubmit={this.onSubmit}>
+                    <TextField
+                        label="Username"
                         name="username"
+                        error={this.state.errors.username === '' ? false : true}
+                        helperText={this.state.errors.username}
+                        className={this.props.classes.textField}
                         value={this.state.user.username}
                         onChange={this.onChange}
                     />
-                    <span>{this.state.errors.username}</span>
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="text"
+                    <TextField
+                        label="Password"
                         name="password"
+                        error={this.state.errors.password === '' ? false : true}
+                        helperText={this.state.errors.password}
+                        className={this.props.classes.textField}
                         value={this.state.user.password}
                         onChange={this.onChange}
                     />
-                    <span>{this.state.errors.password}</span>
-                </div>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="text"
+                    <TextField
+                        label="Email"
                         name="email"
+                        error={this.state.errors.email === '' ? false : true}
+                        helperText={this.state.errors.email}
+                        className={this.props.classes.textField}
                         value={this.state.user.email}
                         onChange={this.onChange}
                     />
-                    <span>{this.state.errors.email}</span>
-                </div>
-                <button type="submit">{buttonName}</button>
-            </form>
+                    <Button variant="contained" color="primary" type="submit">
+                        {buttonName}
+                    </Button>
+
+                </form>
+            </div>
         );
     }
 
 }
-export default UserForm;
+
+export default UserFormMaterial;
+/*
+export default withStyles(useStyles)(UserForm);*/
